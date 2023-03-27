@@ -10,10 +10,9 @@ let awaitingEndofMove = false;
 
 
 
-
-
 function buildTile(color){
     const element = document.createElement('div');
+
     element.classList.add('tile');
     element.setAttribute("data-color", color);
     element.setAttribute("data-reveald", "false");
@@ -21,11 +20,11 @@ function buildTile(color){
     element.addEventListener('click', () => {
         const revealed = element.getAttribute("data-revealed");
 
-        if(awaitingEndofMove || revealed === "true")
 
         if(awaitingEndofMove
             || revealed === "true"
-            || element === activeTile){
+            || element == activeTile)
+        {
             return;
         }
 
