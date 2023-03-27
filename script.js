@@ -9,7 +9,6 @@ let activeTile = null;
 let awaitingEndofMove = false;
 
 
-
 function buildTile(color){
     const element = document.createElement('div');
 
@@ -23,7 +22,7 @@ function buildTile(color){
 
         if(awaitingEndofMove
             || revealed === "true"
-            || element == activeTile)
+            || element === activeTile)
         {
             return;
         }
@@ -39,6 +38,7 @@ function buildTile(color){
         if(colorToMatch ===  color){
             activeTile.setAttribute("data-revealed", "true");
             element.setAttribute("data-revealed", "true");
+
             activeTile = null; 
             awaitingEndofMove = false;
             revealedCount +=2;
@@ -51,8 +51,8 @@ function buildTile(color){
 
         awaitingEndofMove = true;
         setTimeout(() => {
-            element.style.backgroundColor = null;
             activeTile.style.backgroundColor = null;
+            element.style.backgroundColor = null;
             awaitingEndofMove = false;
             activeTile = null;
         }, 1000)
@@ -61,8 +61,6 @@ function buildTile(color){
 
     return element;
 }
-
-
 
 
 
